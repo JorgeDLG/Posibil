@@ -6,7 +6,7 @@ debugger;
 function button(){
    
    function printear(stng){
-      esp.innerHTML.replace(stng);
+      esp.innerHTML = stng;
    }
 
 const buton = document.getElementById("boton");
