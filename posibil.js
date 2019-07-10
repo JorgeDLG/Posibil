@@ -9,20 +9,20 @@ function button(){
       esp.innerHTML = stng;
    }
 
-const buton = document.getElementById("boton");
-const inpt = document.getElementById("input").value;
-const esp= document.getElementById("espacio");
-const tamñ = inpt.length;
+   const buton = document.getElementById("boton");
+   const inpt = document.getElementById("input").value;
+   const esp= document.getElementById("espacio");
+   const tamñ = inpt.length;
 
-console.log(buton,inpt,esp,tamñ);
+   console.log(buton,inpt,esp,tamñ);
    printear(inpt);
 
-   /*for (var i = 0; i < tamñ;i++){
+   for (var i = 0; i < tamñ;i++){
 
-   printear(inpt);
-   printear(tamñ);
+      printear(inpt);
+      printear(tamñ);
    }
-   */
+   
 }
 
 
@@ -32,14 +32,13 @@ console.log(buton,inpt,esp,tamñ);
 
    /* ..INSTRUCCIONES..
 1. Leer palabra del input
-2. Iniciar loop con char a* en 1º pos
-3. Guardar estado del string
-4. Bloquear hasta penultimo char y conmutar chars no bloqueados. 
-   (al ser 3 el length del string solo hace 1 conmutacion.
-5. Iterar el loop a* en 2º pos
-6. Guardar estado del string
-7.  PASO 4 BIS
-8. Iterar el loop a* en 3º pos
-9. PASO 4 BIS
-10. el interador a revasado a la ultima posicion del string luego fin loop fin programa.
+2. Iniciar loop de bloqueo del 1º char
+3. Guardar estado del string como ORIGINAL y SNAP
+4. CONMUTACION Y SNAP **(KIT cuestion cuando más chars)
+5.  Volver a ORIGINAL e ITERAR loop bloqueo 1º char
+6. REPETIR 3-4-5
+7.  Cuando revase ultimoChar fin loop bloqueo.. Y FIN APP.
+
+
+(chars * multiplicador =snaps totales) 3*2=6 4*6=24
 */
