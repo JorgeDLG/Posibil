@@ -2,25 +2,29 @@
 alert("script launched");
 
 debugger;
-function printear(stng){
-esp.innerHTML(stng +
- " ");
-}
 
 function button(){
+   
+   function printear(stng){
+      esp.innerHTML.replace(stng);
+   }
+
 const buton = document.getElementById("boton");
 const inpt = document.getElementById("input");
 const esp= document.getElementById("espacio");
-const tamñ = inpt.value.length;  // porque el tipo es number y el valor undefined??
+const tamñ = inpt.value.length;
 
 console.log(buton,inpt,esp,tamñ);
-}
-/*
-for (var i = 0; i < inpt.lenght;i++){
+   printear(inpt);
 
-printear(inpt);
-printear(tamñ);
+   /*for (var i = 0; i < tamñ;i++){
+
+   printear(inpt);
+   printear(tamñ);
+   }
+   */
 }
+
 
 //window.addEventListener('click
 
