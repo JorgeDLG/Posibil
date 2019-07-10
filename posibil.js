@@ -5,21 +5,28 @@ debugger;
 
 function button(){
    
-   function printear(stng){
-      esp.innerHTML = stng;
+   //2 opciones para esta func: O se "computan" todas las snaps y printea todo d golpe
+                              // O Guardar snap =  Printear (sin sobreescribe)
+   function printear(string){ //sobreescribe
+      out.innerHTML = string;
    }
 
-   const buton = document.getElementById("boton");
-   const inpt = document.getElementById("input").value;
-   const esp= document.getElementById("espacio");
-   const tamñ = inpt.length;
+   //const buton = document.getElementById("boton");
+   const input = document.getElementById("input").value;
+   const out= document.getElementById("espacio");
+   const tamñ = input.length;
 
-   console.log(buton,inpt,esp,tamñ);
-   printear(inpt);
+   
 
    for (var i = 0; i < tamñ;i++){
 
-      printear(inpt);
+      var charBlq = input[0];
+
+      var Orig = //iria esto dentro de loop? (3-4-5)
+
+      
+
+      printear(input);
       printear(tamñ);
    }
    
