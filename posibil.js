@@ -10,9 +10,9 @@ function button(){
    }
 
 const buton = document.getElementById("boton");
-const inpt = document.getElementById("input");
+const inpt = document.getElementById("input").value;
 const esp= document.getElementById("espacio");
-const tamñ = inpt.value.length;
+const tamñ = inpt.length;
 
 console.log(buton,inpt,esp,tamñ);
    printear(inpt);
