@@ -41,7 +41,7 @@ function button(){
    // asegura los scopes de las var
    for (var nBlq = 0; nBlq < input.length - 1; nBlq++){ //nBlq = Numero Ordinal Char Bloqueado en palabra(input)
       
-      var charBlq = input[nBlq];
+      var charBlq = Orig[nBlq]; //podria ser una const cogida del Input?
       snaps[nBlq,0] = Orig; //Original siempre va a ser 0
 
       //Conmuta(nBlq,Orig,snaps);
