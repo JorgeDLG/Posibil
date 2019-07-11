@@ -1,7 +1,6 @@
 "strict mode";
 alert("script launched");
 
-debugger;
 
 function button(){
    
@@ -13,27 +12,47 @@ function button(){
    const out= document.getElementById("espacio"); //.value?
    
    var Orig = input;
-   var snaps = [,];
+   var snaps = [,]; //CONS?
 
    function printear(string){ //sobreescribe
       out.innerHTML = string;
    }
 
-   function Conmuta(){
+   function Conmuta(nBlq,original,snaps){
 
    }
-   for (var i = 0; i < input.length;i++){
-      
-      var charBlq = input[i];
-      snaps[i,0] = Orig; //Original siempre va a ser 0
 
-      Conmuta();
-
+   function desplazar(charBlq,string){
       
+      let stringArray = string.split('');
+
+      let chAdesp = stringArray.indexOf(charBlq); //PROBLEMA con chars iguales
+
+      let aux = stringArray[chAdesp];
+
+      stringArray[chAdesp] = stringArray[chAdesp+1];
+      stringArray[chAdesp+1] = aux;
+
+      debugger;
+      let stDesplazada = stringArray.join(""); //ERROR: Me lo une con comas
+      return stDesplazada;
+   }
+   
+   // asegura los scopes de las var
+   for (var nBlq = 0; nBlq < input.length - 1; nBlq++){ //nBlq = Numero Ordinal Char Bloqueado en palabra(input)
+      
+      var charBlq = input[nBlq];
+      snaps[nBlq,0] = Orig; //Original siempre va a ser 0
+
+      //Conmuta(nBlq,Orig,snaps);
 
       //REVALORIZAR Orig POR CADA ITERACION al final!
-
+      var Orig = desplazar(charBlq,Orig);
    }
+
+   nBlq++;
+   snaps[nBlq,0] = Orig;
+   //Conmuta(nBlq,Orig,snaps); //Ultima conmut fuera porque no queremos que DESPLACE fuera de la palabra.
    
 }
 
