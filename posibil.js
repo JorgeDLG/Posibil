@@ -18,7 +18,9 @@ function button(){
       out.innerHTML = string;
    }
 
-   function Conmuta(nBlq,original,snaps){
+   function Conmuta(nBlq,original,snaps){ //va a tener que lidiar con una complejidad nchars-1 del string
+
+      
 
    }
 
@@ -43,7 +45,7 @@ function button(){
       
       var charBlq = Orig[nBlq]; //podria ser una const cogida del Input?
       snaps[nBlq,0] = Orig; //Original siempre va a ser 0
-
+      
       //Conmuta(nBlq,Orig,snaps);
 
       //REVALORIZAR Orig POR CADA ITERACION al final!
@@ -54,6 +56,7 @@ function button(){
    snaps[nBlq,0] = Orig;
    //Conmuta(nBlq,Orig,snaps); //Ultima conmut fuera porque no queremos que DESPLACE fuera de la palabra.
    
+   //Finalmente Printea el valor del array Snaps
 }
 
 
