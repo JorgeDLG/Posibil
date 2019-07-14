@@ -36,7 +36,7 @@ function button(){
       stringArray[chAdesp+1] = aux;
 
       debugger;
-      let stDesplazada = stringArray.join(""); //ERROR: Me lo une con comas
+      let stDesplazada = stringArray.join("");
       return stDesplazada;
    }
    
