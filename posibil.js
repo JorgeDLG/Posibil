@@ -55,7 +55,7 @@ function button(){
    nBlq++;
    snaps[nBlq,0] = Orig;
    //Conmuta(nBlq,Orig,snaps); //Ultima conmut fuera porque no queremos que DESPLACE fuera de la palabra.
-   
+   b
    //Finalmente Printea el valor del array Snaps
 }
 

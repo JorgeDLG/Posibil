@@ -19,9 +19,9 @@ Mayusculas = Suproducto de CMCC.
 
             a(origen) = A.
 
-#S(2) Com. de:  [2CMCC para 1 b]
+#S(2) Com. de:  [2CMCC para 1 b]  *La computación arranca desde aqui ORIGEN! verdadero
 
-            (a)+b = AB , BA.
+            (a)+b = BA , AB.
 
 #S(3) Com. de:  [6CMCC para 2 b]
 
@@ -33,10 +33,10 @@ Mayusculas = Suproducto de CMCC.
 
 #S(4) Com. de:  [24CMCC para  6b]
 
-            (cab)+d     (cba)+d   (acb)+d   (bca)+d   (abc)+d   (bac)+d
+             (cab)+d     (cba)+d    (acb)+d   (bca)+d    (abc)+d    (bac)+d
 
-           = CAB    ,   CBA   ,   ACB   ,   BCA   ,   ABC   ,   BAC
-             CAB    ,   CBA   ,   ACB   ,   BCA   ,   ABC   ,   BAC
-             CAB    ,   CBA   ,   ACB   ,   BCA   ,   ABC   ,   BAC
-             CAB    ,   CBA   ,   ACB   ,   BCA   ,   ABC   ,   BAC.
+           = DCAB    ,   DCBA   ,   DACB   ,   DBCA   ,   DABC   ,   DBAC
+             CDAB    ,   CDBA   ,   ADCB   ,   BDCA   ,   ADBC   ,   BDAC
+             CADB    ,   CBDA   ,   ACDB   ,   BCDA   ,   ABDC   ,   BADC
+             CABD    ,   CBAD   ,   ACBD   ,   BCAD   ,   ABCD   ,   BACD.
 
