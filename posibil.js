@@ -4,25 +4,17 @@ alert("script launched");
 
 function button(){
    
-   //2 opciones para esta func: O se "computan" todas las snaps y printea todo d golpe
-                              // O Guardar snap =  Printear (sin sobreescribe)
-   
-   //const buton = document.getElementById("boton");
-   const input = document.getElementById("input").value;
-   const out= document.getElementById("espacio"); //.value?
-   
-   var Orig = input;
+   const palabra = document.getElementById("input").value;
+   const long = palabra.length;
+   //const origen = palabra[0];
+   var workChar; //el que se va añadiendo
+   var palHijo =palabra[0];
+   var longHijo = palHijo.length;
    var snaps = [,]; //CONS?
 
-   function printear(string){ //sobreescribe
-      out.innerHTML = string;
-   }
 
-   function Conmuta(nBlq,original,snaps){ //va a tener que lidiar con una complejidad nchars-1 del string
+   const out= document.getElementById("espacio"); //.value?
 
-      
-
-   }
 
    function desplazar(charBlq,string){
       
@@ -40,39 +32,17 @@ function button(){
       return stDesplazada;
    }
    
-   // asegura los scopes de las var
-   for (var nBlq = 0; nBlq < input.length - 1; nBlq++){ //nBlq = Numero Ordinal Char Bloqueado en palabra(input)
+   for (var i = 1; i < long - 1; i++){
       
-      var charBlq = Orig[nBlq]; //podria ser una const cogida del Input?
-      snaps[nBlq,0] = Orig; //Original siempre va a ser 0
-      
-      //Conmuta(nBlq,Orig,snaps);
+      workChar = palabra[i];
 
-      //REVALORIZAR Orig POR CADA ITERACION al final!
-      var Orig = desplazar(charBlq,Orig);
+      for (var j = 0; j < array.length; j++) { //comprueba longHijo
+         
+         //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
+         
+      }
+      palHijo
+      
    }
-
-   nBlq++;
-   snaps[nBlq,0] = Orig;
-   //Conmuta(nBlq,Orig,snaps); //Ultima conmut fuera porque no queremos que DESPLACE fuera de la palabra.
-   b
-   //Finalmente Printea el valor del array Snaps
+   
 }
-
-
-//window.addEventListener('click
-
-
-
-   /* ..INSTRUCCIONES..
-1. Leer palabra del input
-2. Iniciar loop de bloqueo del 1º char
-3. Guardar estado del string como ORIGINAL y SNAP
-4. CONMUTACION Y SNAP **(KIT cuestion cuando más chars)
-5.  Volver a ORIGINAL e ITERAR loop bloqueo 1º char
-6. REPETIR 3-4-5
-7.  Cuando revase ultimoChar fin loop bloqueo.. Y FIN APP.
-
-
-(chars * multiplicador =snaps totales) 3*2=6 4*6=24
-*/
