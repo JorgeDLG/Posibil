@@ -28,7 +28,7 @@ function test(){
 }
 
 function button(){
-   
+   debugger;
    const palabra = document.getElementById("input").value;
    const long = palabra.length;
    //const origen = palabra[0];
@@ -51,7 +51,6 @@ function button(){
       stringArray[chAdesp] = stringArray[chAdesp+1];
       stringArray[chAdesp+1] = aux;
 
-      debugger;
       let stDesplazada = stringArray.join("");
       return stDesplazada;
    }
@@ -62,10 +61,15 @@ function button(){
 
       for (var j = 0; j <= longHijo; j++) { //comprueba longHijo
          
+         if (j === 0) {
+            palHijo = workChar + palHijo;
+         }
+
+         
+
          //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
 
       }
-      palHijo
       
    }
    
