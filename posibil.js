@@ -1,6 +1,31 @@
 "strict mode";
 alert("script launched");
+function test(){
+// crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
+   const out= document.getElementById("espacio"); //.value?
 
+   var matriz = [,];
+   var contador = 0;
+
+   // matriz[4,2];
+
+   for (let i = 0; i < 5; i++) {
+      
+      for (let j = 0; j < 5; j++) {
+         debugger;
+         matriz[i,j] = contador;
+         contador++;
+      }
+   }
+   
+   for (let i = 0; i < 5; i++) {
+      
+      for (let j = 0; j < 5; j++) {
+      
+         out.innerHTML += matriz[i,j] + " ";
+      }
+   }
+}
 
 function button(){
    
@@ -38,7 +63,7 @@ function button(){
       for (var j = 0; j <= longHijo; j++) { //comprueba longHijo
          
          //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
-         
+
       }
       palHijo
       
