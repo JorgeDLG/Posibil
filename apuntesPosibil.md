@@ -7,7 +7,8 @@
 CMCC = coleccion de muestras de combinatoria de los char.
 
 Bloqueos = secuencia fija(string) con determinado orden de cadena de chars.
-    AB bloqueo distinto de BA.
+SIN CONTAR EL WORKING CHAR!!!
+    AB bloqueo distinto de BA.  
 
 S(n) = numero de chars del string  a calc. combinatoria. (Subproductos
 de una misma palabra concebida como solución final a resolver.)

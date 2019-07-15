@@ -12,7 +12,6 @@ function button(){
    var longHijo = palHijo.length;
    var snaps = [,]; //CONS?
 
-
    const out= document.getElementById("espacio"); //.value?
 
 
@@ -32,11 +31,11 @@ function button(){
       return stDesplazada;
    }
    
-   for (var i = 1; i < long - 1; i++){
+   for (var i = 1; i <= long - 1; i++){
       
       workChar = palabra[i];
 
-      for (var j = 0; j < array.length; j++) { //comprueba longHijo
+      for (var j = 0; j <= longHijo; j++) { //comprueba longHijo
          
          //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
          
