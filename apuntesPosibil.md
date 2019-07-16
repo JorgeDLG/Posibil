@@ -22,7 +22,7 @@ Mayusculas = Suproducto de CMCC.
 
 #S(2) Com. de:  [2CMCC para 1 b]  *La computación arranca desde aqui ORIGEN! verdadero
 
-            (a)+b = BA , 
+            (a)+b = BA , (Mejora el codigo para que guarda en orden: AB, BA)
                     AB.
 
 #S(3) Com. de:  [6CMCC para 2 b]
