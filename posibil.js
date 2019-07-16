@@ -35,11 +35,10 @@ function button(){
    var workChar; //el que se va añadiendo
    var palHijo =palabra[0];
    var longHijo = palHijo.length;
-   var snaps = [,]; //CONS?
+   var bloqueos = [] , jCol = [];
+   var snaps = [bloqueos,jCol];
 
    const out= document.getElementById("espacio"); //.value?
-
-
    function desplazar(charBlq,string){
       
       let stringArray = string.split('');
@@ -59,16 +58,22 @@ function button(){
       
       workChar = palabra[i];
 
-      for (var j = 0; j <= longHijo; j++) { //comprueba longHijo
+      //BLOQUEOS BLUCLE OR WHAT????
+      for (var j = 0; j <= longHijo; j++) {
          
          if (j === 0) {
             palHijo = workChar + palHijo;
+            snaps[0,j] = palHijo;
+         }
+         else{ //movemos workingChar y creamos bloqueos
+            palHijo = desplazar(workChar,palHijo);
+            snaps[]
          }
 
+         //por cada "Revalorizacion de snaps" los valores obtenidos
+         // por iterar la j , se trasladan(ordenadamente) a bloqueos donde j=0
          
-
          //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
-
       }
       
    }
