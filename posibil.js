@@ -26,6 +26,15 @@ function test(){
       }
    }
 }
+function Factorial(numero){
+   
+   if (numero === 0) {
+      return 1;
+   }
+   else{
+      return numero * Factorial(numero-1);
+   }
+}
 
 function button(){
    debugger;
@@ -36,9 +45,11 @@ function button(){
    var palHijo =palabra[0];
    var longHijo = palHijo.length;
    var bloqueos = [] , jCol = [];
-   var snaps = [bloqueos,jCol];
-
+   var snaps = [bloqueos][jCol];
+   var NbloqTot;
+   var nBloq; //0 porque es una variable para indexar un ARRAY
    const out= document.getElementById("espacio"); //.value?
+
    function desplazar(charBlq,string){
       
       let stringArray = string.split('');
@@ -55,19 +66,22 @@ function button(){
    }
    
    for (var i = 1; i <= long - 1; i++){
-      
       workChar = palabra[i];
+      NbloqTot = Factorial(longHijo)/longHijo;
 
-      //BLOQUEOS BLUCLE OR WHAT????
-      for (var j = 0; j <= longHijo; j++) {
+      for (nBloq = 0; nBloq < NbloqTot; nBloq++) {
          
-         if (j === 0) {
-            palHijo = workChar + palHijo;
-            snaps[0,j] = palHijo;
-         }
-         else{ //movemos workingChar y creamos bloqueos
-            palHijo = desplazar(workChar,palHijo);
-            snaps[]
+         for (var j = 0; j <= longHijo; j++) {
+            
+            if (j === 0) {
+               palHijo = workChar + palHijo;
+               snaps[nBloq][0] = palHijo;
+               workChar = palHijo[0];
+            }
+            else{ //movemos workingChar y creamos bloqueos
+               palHijo = desplazar(workChar,palHijo);
+               snaps[nBloq][j] = palHijo;
+            }
          }
 
          //por cada "Revalorizacion de snaps" los valores obtenidos
