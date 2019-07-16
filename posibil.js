@@ -72,8 +72,8 @@ function button(){
       for (nBloq = 0; nBloq < NbloqTot; nBloq++) {
          
          if (i > 1) { //coge datos de snap y revaloriza (nos encontramos en S(3))
-            //palHijo =
-            //snaps[] 
+            //palHijo = snaps[] 
+            
          }
          else{ //apaño para S(2) para que no coja datos de snap pero lo "inicie"
             let palHijo = palHijo + workChar;
@@ -84,7 +84,7 @@ function button(){
 
          for (var j = 0; j <= longHijo; j++) {
             
-            if (j === 0) {
+            if (j === 0) { //revisar!!
                palHijo = workChar + palHijo;
                snaps[nBloq][0] = palHijo;
                workChar = palHijo[0];
@@ -94,11 +94,10 @@ function button(){
                snaps[nBloq][j] = palHijo;
             }
          }
-         
-         //por cada "Revalorizacion de snaps" los valores obtenidos
-         // por iterar la j , se trasladan(ordenadamente) a bloqueos donde j=0
-         
-         //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
+         //AQUI REVALORIZAR SNAPS una vez obtenidos CMCC
+            //por cada "Revalorizacion de snaps" los valores obtenidos
+            // por iterar la j , se trasladan(ordenadamente) a bloqueos donde j=0
+            //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
       }
 
    }
