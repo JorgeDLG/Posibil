@@ -1,19 +1,19 @@
 "strict mode";
+debugger;
 alert("script launched");
 function test(){
 // crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
+   debugger;
    const out= document.getElementById("espacio"); //.value?
 
-   var matriz = [,];
+   var matrizJ = [];
+   var matrizI = [matrizJ];
    var contador = 0;
-
-   // matriz[4,2];
 
    for (let i = 0; i < 5; i++) {
       
       for (let j = 0; j < 5; j++) {
-         debugger;
-         matriz[i,j] = contador;
+         matrizI[i][j] = contador;
          contador++;
       }
    }
@@ -22,7 +22,7 @@ function test(){
       
       for (let j = 0; j < 5; j++) {
       
-         out.innerHTML += matriz[i,j] + " ";
+         out.innerHTML += matrizI[i][j] + " ";
       }
    }
 }
@@ -35,7 +35,18 @@ function Factorial(numero){
       return numero * Factorial(numero-1);
    }
 }
+function formatearAhorizontal(array,bloqs,Jcolu){
+   var B,j; //iteradores Bloqueos y J.
+   var newBlq = [],newJ = [],newArr = [];
 
+   
+   for (B = 0; B < bloqs.length; B++) {
+      for (let j = 0; j < Jcolu.length; j++) {
+         
+         
+      }
+   }
+}
 function button(){
    debugger;
    const palabra = document.getElementById("input").value;
@@ -45,7 +56,7 @@ function button(){
    var palHijo =palabra[0];
    var longHijo = palHijo.length;
    var bloqueos = [] , jCol = [];
-   var snaps = [bloqueos][jCol];
+   var snapsBlqs = [bloqueos][jCol];
    var NbloqTot;
    var nBloq; //0 porque es una variable para indexar un ARRAY
    const out= document.getElementById("espacio"); //.value?
@@ -73,33 +84,34 @@ function button(){
          
          if (i > 1) { //coge datos de snap y revaloriza (nos encontramos en S(3))
             //palHijo = snaps[] 
-            
+               
          }
          else{ //apaño para S(2) para que no coja datos de snap pero lo "inicie"
             let palHijo = palHijo + workChar;
-            snaps[0][0] = palHijo;
-            let palHijo = workChar + palHijo;
-            snaps[0][1] = palHijo;
+            snapsBlqs[0][0] = palHijo;
+            //let palHijo = workChar + palHijo;  ME DICE QUE YA HA SIDO DECLARADA!
+            snapsBlqs[0][1] = palHijo;
          }
 
          for (var j = 0; j <= longHijo; j++) {
             
-            if (j === 0) { //revisar!!
-               palHijo = workChar + palHijo;
-               snaps[nBloq][0] = palHijo;
-               workChar = palHijo[0];
+            palHijo = workChar + palHijo;
+            snapsBlqs[nBloq][0] = palHijo;
+            workChar = palHijo[0];
+            if(true){
+               
             }
             else{ //movemos workingChar y creamos bloqueos
                palHijo = desplazar(workChar,palHijo);
-               snaps[nBloq][j] = palHijo;
+               snapsBlqs[nBloq][j] = palHijo;
             }
          }
+      }
+         formatearAhorizontal(snapsBlqs,bloqueos,jCol);
          //AQUI REVALORIZAR SNAPS una vez obtenidos CMCC
             //por cada "Revalorizacion de snaps" los valores obtenidos
             // por iterar la j , se trasladan(ordenadamente) a bloqueos donde j=0
             //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
-      }
-
    }
-   
+
 }
