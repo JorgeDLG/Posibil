@@ -3,26 +3,31 @@ debugger;
 alert("script launched");
 function test(){
 // crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
-   debugger;
-   const out= document.getElementById("espacio"); //.value?
-
-   var matrizJ = [];
-   var matrizI = [matrizJ];
-   var contador = 0;
-
-   for (let i = 0; i < 5; i++) {
-      
-      for (let j = 0; j < 5; j++) {
-         matrizI[i][j] = contador;
-         contador++;
-      }
-   }
    
-   for (let i = 0; i < 5; i++) {
-      
-      for (let j = 0; j < 5; j++) {
-      
-         out.innerHTML += matrizI[i][j] + " ";
+   const out= document.getElementById("espacio");
+   
+   const tamañoI = 3, tamañoJ = 5;  //y si no se el tamaño del array?
+   
+   debugger;
+
+   var arrayI = new Array(tamañoI);
+   var contador = 0; //valores random a meter (ejemplo)
+
+   //CREANDO LA ESTRUC DE LA MATRIZ
+   for (let i = 0; i < tamañoI; i++) { 
+      arrayI[i] = new Array(tamañoJ);
+   }
+   //DANDO VALORES A LA MATRIZ
+   arrayI.forEach(val => {
+      for (let j = 0; j < tamañoJ; j++) {
+         val[j] = contador;
+         contador++;  
+      }
+   });
+   //PRINTEANDO LA MATRIZ
+   for (let i = 0; i < tamañoI; i++) {
+      for (let j = 0; j < tamañoJ; j++) {      
+         out.innerHTML += arrayI[i][j] + " ";
       }
    }
 }
@@ -53,13 +58,13 @@ function button(){
    const long = palabra.length;
    //const origen = palabra[0];
    var workChar; //el que se va añadiendo
-   var palHijo =palabra[0];
+   var palHijo = palabra[0];
    var longHijo = palHijo.length;
    var bloqueos = [] , jCol = [];
    var snapsBlqs = [bloqueos][jCol];
-   var NbloqTot;
+   var nBlqsEnI;
    var nBloq; //0 porque es una variable para indexar un ARRAY
-   const out= document.getElementById("espacio"); //.value?
+   const out= document.getElementById("espacio");
 
    function desplazar(charBlq,string){
       
@@ -78,15 +83,15 @@ function button(){
    
    for (var i = 1; i <= long - 1; i++){
       workChar = palabra[i];
-      NbloqTot = Factorial(longHijo)/longHijo;
+      nBlqsEnI = Factorial(longHijo)/longHijo;
 
-      for (nBloq = 0; nBloq < NbloqTot; nBloq++) {
+      for (nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i > 1) { //coge datos de snap y revaloriza (nos encontramos en S(3))
             //palHijo = snaps[] 
                
          }
-         else{ //apaño para S(2) para que no coja datos de snap pero lo "inicie"
+         else{ //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
             let palHijo = palHijo + workChar;
             snapsBlqs[0][0] = palHijo;
             //let palHijo = workChar + palHijo;  ME DICE QUE YA HA SIDO DECLARADA!
