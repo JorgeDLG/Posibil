@@ -1,5 +1,5 @@
 "strict mode";
-alert("script launched");
+//alert("script launched");
 
 function test(){
 // crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
@@ -8,7 +8,7 @@ function test(){
    
    const tamañoI = 3, tamañoJ = 5;  //y si no se el tamaño del array?
    
-   debugger;
+   //debugger;
 
    var arrayI = new Array(tamañoI);
    var contador = 0; //valores random a meter (ejemplo)
@@ -29,6 +29,17 @@ function test(){
       for (let j = 0; j < tamañoJ; j++) {      
          out.innerHTML += arrayI[i][j] + " ";
       }
+   }
+}
+function testScopes(){
+   var str = "a";
+   var long = str.length; 
+
+
+   if (true) {
+      let str = "zzz";
+      let long = str.length; 
+      console.log(str,long);
    }
 }
 function Factorial(numero){
@@ -61,29 +72,41 @@ function formatearAhorizontal(matriz){ //repasa el paso de parametros(en este ca
 
    return matriz;
 }
+
 function button(){
-   debugger;
+   //debugger;
    const palabra = document.getElementById("input").value;
+   const out= document.getElementById("espacio");
    const long = palabra.length;
-   //const origen = palabra[0];
    var workChar; //el que se va añadiendo
    var palHijo = palabra[0];
    var longHijo = palHijo.length;
-   //    CREAMOS LA MATRIZ EN EJECUCUION PARA DARLE EL TAMAÑO VARIABLE ADECUADO
-   // var  jCol = [];
-   // var snapsBlqs = [bloqueos][jCol];
    var nBlqsEnI;
-   const out= document.getElementById("espacio");
    
-
    for (var i = 1; i <= long - 1; i++){
       workChar = palabra[i];
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
-      
+      let palHijo = palabra
+
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
-         if (i > 1) { //(>=S3) coge datos de snap y calc CMCC
-            //palHijo = snaps[] 
+         if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
+         debugger;
+
+         palHijo = palHijo + workChar; // XQ longHijo no es = 2?
+         var snapsBlqs = new Array(nBlqsEnI); //arrayI
+         
+         for (let nBlq = 0; nBlq < nBlqsEnI; nBlq++) {
+            snapsBlqs[nBlq] = new Array(longHijo); //arrayJ
+         }
+
+         snapsBlqs[0][0] = palHijo; //AB?
+         palHijo = workChar + palHijo; //ME DICE QUE YA HA SIDO DECLARADA?
+         snapsBlqs[0][1] = palHijo; //BA?
+         }
+         else{ //(>=S3) coge datos de snap y calc CMCC
+            
+         //palHijo = snaps[] 
             
 
                         //S3 EN ADELANTE TO-DO//
@@ -102,23 +125,10 @@ function button(){
             //    }
             // }
          }
-         else{ //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
 
-            let palHijo = palHijo + workChar; //AB? longHijo=2?
-            var snapsBlqs = new Array(nBlqsEnI); //arrayI
-            
-            for (let nBlq = 0; nBlq < nBlqsEnI; nBlq++) {
-               snapsBlqs = new Array(longHijo); //arrayJ
-            }
-
-            snapsBlqs[0][0] = palHijo; //AB?
-            palHijo = workChar + palHijo; //ME DICE QUE YA HA SIDO DECLARADA?
-            snapsBlqs[0][1] = palHijo; //BA?
-         }
-
-      }
+      } //FinBloqueo
          snapsBlqs = formatearAhorizontal(snapsBlqs); //AQUI REVALORIZAR SNAPS una vez obtenidos CMCC
             //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
-   }
+   } //FinI
 
-}
+} //FinButton
