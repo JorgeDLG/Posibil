@@ -30,6 +30,17 @@ function test(){
          out.innerHTML += arrayI[i][j] + " ";
       }
    }
+
+
+
+   /*  USO DEL FOR OF:
+
+      for (let iterI of matriz){
+         for(let iterJ of iterI){
+            console.log(iterI,iterJ);
+         }
+      }
+   */
 }
 function testScopes(){
    var str = "a";
@@ -65,16 +76,27 @@ function desplazar(charBlq,string){
    let stDesplazada = stringArray.join("");
    return stDesplazada;
 }
-function formatearAhorizontal(matriz){ //repasa el paso de parametros(en este caso matriz)
-   var matriz = null;
+function formatearAhorizontal(matriz){
+   debugger;
+   matriz =[matJ=["cab","acb","abc","cba","bca","bac"]]; //INPUT
+   //var matrix =[matJ=[null],matJ=[null]];
+   var matrix =[];
+   //OUTPUT expected: matrix = [matJ=["ab"],matJ=["ba"]];
 
-   
 
-   return matriz;
+   for (let i = 0; i < matriz.length; i++) {
+      
+      for (let j = 0; j < matriz[i].length; j++) {
+         
+         matrix.push(new Array(1));
+         matrix[j][0] = matriz[i][j];
+      }
+      matrix.push("#")
+   }
+   return matrix;
 }
 
 function button(){
-   //debugger;
    const palabra = document.getElementById("input").value;
    const out= document.getElementById("espacio");
    const long = palabra.length;
@@ -86,12 +108,11 @@ function button(){
    for (var i = 1; i <= long - 1; i++){
       workChar = palabra[i];
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
-      let palHijo = palabra
+      //let palHijo = palabra
 
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
-         debugger;
 
          palHijo = palHijo + workChar; // XQ longHijo no es = 2?
          var snapsBlqs = new Array(nBlqsEnI); //arrayI
@@ -101,7 +122,7 @@ function button(){
          }
 
          snapsBlqs[0][0] = palHijo; //AB?
-         palHijo = workChar + palHijo; //ME DICE QUE YA HA SIDO DECLARADA?
+         palHijo = workChar + palHijo;
          snapsBlqs[0][1] = palHijo; //BA?
          }
          else{ //(>=S3) coge datos de snap y calc CMCC
