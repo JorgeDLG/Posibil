@@ -7,8 +7,6 @@ function test(){
    
    const tamañoI = 3, tamañoJ = 5;  //y si no se el tamaño del array?
    
-   //debugger;
-
    var arrayI = new Array(tamañoI);
    var contador = 0; //valores random a meter (ejemplo)
 
@@ -75,9 +73,7 @@ function desplazar(charBlq,string){
    let stDesplazada = stringArray.join("");
    return stDesplazada;
 }
-function formatearAhorizontal(matriz){
-   // debugger;
-   
+function formatearAhorizontal(matriz){   
    //INPUT
    // matriz =[matJ=["cab","acb","abc"]]; 
    // matriz.push(matJ=["cba","bca","bac"]);
@@ -98,7 +94,6 @@ function formatearAhorizontal(matriz){
    return matrixHORIZ;
 }
 function delSeparadorBlq(matriz){
-   // debugger;
    // matriz =[matJ=["ba"]];
    // matriz.push(matJ=["ab"]);
    // matriz.push(matJ=["#"]);
@@ -119,6 +114,7 @@ function delSeparadorBlq(matriz){
    }
 }
 function addAlInicioCadaCol(Wchar, matrizHO){
+   //func añadir working char al inicio de cada "string en col n fila 1"
    for (let i = 0; i < matrizHO.length; i++) {
       matrizHO[i][0] = Wchar + matrizHO[i][0];
    }
@@ -128,25 +124,26 @@ function button(){
    const palabra = document.getElementById("input").value;
    const out= document.getElementById("espacio");
    const long = palabra.length;
-   var workChar; //el que se va añadiendo
+   var workChar;
    
       //[$] que estos vals se calc dentro de bucle i o dentro de bucle bloq en if y else
       var palHijo = palabra[0]; 
       var longHijo = palHijo.length;
       //
-   var nBlqsEnI;
-   
-
-   
+      var nBlqsEnI;
    for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
       workChar = palabra[i];
 
-      //CUANDO LLEGUE AQUI con i = 2, palHijo y longHijo revalorizados
-      //REVALORIZA SALVO EN i=0 ??!! O mejor [$]
-      /*palHijo = null;
-      longHijo = null;
-      */
-      nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
+      if (i>1) {
+         debugger;
+         //solo para calcular nBlqsEnI
+         delSeparadorBlq(snapsBlqs);
+         addAlInicioCadaCol(workChar,snapsBlqs);
+         palHijo = snapsBlqs[0][0];
+         longHijo = palHijo.length;
+      }
+      nBlqsEnI = Factorial(longHijo)/longHijo;
+      //nBlq... en i=2,longHijo=2 no deberia ser 2?? xq 1?
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
@@ -154,37 +151,23 @@ function button(){
             snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
          }
          else{ //(>=S3) coge datos de snap y calc CMCC
-            //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
-            delSeparadorBlq(snapsBlqs);
-            addAlInicioCadaCol(workChar,snapsBlqs);
-            //func añadir working char al inicio de cada "string en col n fila 1"
             
+                     //S3 EN ADELANTE//
+            for (var j = 0; j < longHijo-1; j++) { //val longHijo es antes de añadir Wchar!!!
 
+               var str = snapsBlqs[nBloq][j];
+               var newStr = desplazar(workChar,str);
+                  //pusheando el arrayJ con el str desplazado
+               var arrJ = snapsBlqs[nBloq];
+               arrJ.push(newStr); //creo que se esta valorando el arrJ
+               // de forma independiente a snapsBlqs o lo valoro
+               //de forma integrada o lo pego dentro una vez valorado
 
-
-
-
-            
-
-                        //S3 EN ADELANTE TO-DO//
-
-            // for (var j = 0; j <= longHijo; j++) {
-               
-            //    palHijo = workChar + palHijo;
-            //    snapsBlqs[nBloq][0] = palHijo;
-            //    workChar = palHijo[0];
-            //    if(true){
-                  
-            //    }
-            //    else{ //movemos workingChar y creamos bloqueos
-            //       palHijo = desplazar(workChar,palHijo);
-            //       snapsBlqs[nBloq][j] = palHijo;
-            //    }
-            // }
             }
+         }
 
       } //FinBloqueo
-         snapsBlqs = formatearAhorizontal(snapsBlqs); //AQUI REVALORIZAR SNAPS una vez obtenidos CMCC
+         snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
             //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
    } //FinI
 

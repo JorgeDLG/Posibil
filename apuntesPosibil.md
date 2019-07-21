@@ -29,18 +29,16 @@ Mayusculas = Suproducto de CMCC.
 
 #S(3) Com. de:  [6CMCC para 2 b]
 
-    (ab)+c     (ba)+c       
+    (ba)+c     (ab)+c       
 
-    = CAB    ,   CBA
-      ACB    ,   BCA
-      ABC    ,   BAC.
+    = CBA    ,   CAB
+      BCA    ,   ACB
+      BAC    ,   ABC.
 
 #S(4) Com. de:  [24CMCC para  6b]
 
-    (cab)+d     (cba)+d    (acb)+d   (bca)+d    (abc)+d    (bac)+d
-
-    = DCAB    ,   DCBA   ,   DACB   ,   DBCA   ,   DABC   ,   DBAC
-      CDAB    ,   CDBA   ,   ADCB   ,   BDCA   ,   ADBC   ,   BDAC
-      CADB    ,   CBDA   ,   ACDB   ,   BCDA   ,   ABDC   ,   BADC
-      CABD    ,   CBAD   ,   ACBD   ,   BCAD   ,   ABCD   ,   BACD.
-
+    (cba)+d     (bca)+d    (bac)+d    (cab)+d    (acb)+d    (abc)+d
+    = DCBA    ,   DBCA   ,   DBAC   ,   DCAB   ,   DACB   ,   DABC
+      CDBA    ,   BDCA   ,   BDAC   ,   CDAB   ,   ADCB   ,   ADBC
+      CBDA    ,   BCDA   ,   BADC   ,   CADB   ,   ACDB   ,   ABDC
+      CBAD    ,   BCAD   ,   BACD   ,   CABD   ,   ACBD   ,   ABCD.
