@@ -1,5 +1,4 @@
 "strict mode";
-//alert("script launched");
 
 function test(){
 // crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
@@ -80,24 +79,44 @@ function formatearAhorizontal(matriz){
    // debugger;
    
    //INPUT
-   matriz =[matJ=["cab","acb","abc"]]; 
-   matriz.push(matJ=["cba","bca","bac"]);
+   // matriz =[matJ=["cab","acb","abc"]]; 
+   // matriz.push(matJ=["cba","bca","bac"]);
    
    var matrixHORIZ =[];
    //OUTPUT expected: matrix = [matJ=["ab"],matJ=["ba"]];
    var contJ = 0;
 
    for (let i = 0; i < matriz.length; i++) {
-      console.log(matriz[i].length) //ha d ser 3
       for (let j = 0; j < matriz[i].length; j++) {
          
          matrixHORIZ.push(new Array(1));
-         matrixHORIZ[contJ][0] = matriz[i][j]; //ERROR, NO PUEDE SER J porque en segunda iter(i=1), j vuelve a valer 0 y SOBREESCRIBE los valores anteriores.
+         matrixHORIZ[contJ][0] = matriz[i][j];
          contJ++;
       }
-      matrixHORIZ.push("#") //separador de bloqueo
+      matrixHORIZ.push("#") //separador de bloqueo PARA EL CCMC final formatear el output
    }
    return matrixHORIZ;
+}
+function delSeparadorBlq(matriz){
+   // debugger;
+   // matriz =[matJ=["ba"]];
+   // matriz.push(matJ=["ab"]);
+   // matriz.push(matJ=["#"]);
+   
+   // matriz.push(matJ=["ca"]);
+   // matriz.push(matJ=["ac"]);
+   // matriz.push(matJ=["#"]);
+
+   var iter = 0;
+   while (iter < matriz.length) { //que el iterador no avance si se elimina
+
+      var strEnArrJ = matriz[iter][0];
+      if (strEnArrJ === "#") {
+         matriz.splice(iter,1); //.splice(pos a 'empezar' a remover,Npos hasta fin a remover)
+      }
+      else
+         iter++;
+   }
 }
 
 function button(){
@@ -123,40 +142,40 @@ function button(){
       longHijo = null;
       */
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
-      debugger;
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
-         var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
-         snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
-      }
-      else{ //(>=S3) coge datos de snap y calc CMCC
-         //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
-         
-
-
-
-
-
-
-         
-
-                     //S3 EN ADELANTE TO-DO//
-
-         // for (var j = 0; j <= longHijo; j++) {
-            
-         //    palHijo = workChar + palHijo;
-         //    snapsBlqs[nBloq][0] = palHijo;
-         //    workChar = palHijo[0];
-         //    if(true){
-               
-         //    }
-         //    else{ //movemos workingChar y creamos bloqueos
-         //       palHijo = desplazar(workChar,palHijo);
-         //       snapsBlqs[nBloq][j] = palHijo;
-         //    }
-         // }
+            var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
+            snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
          }
+         else{ //(>=S3) coge datos de snap y calc CMCC
+            //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
+            delSeparadorBlq(snapsBlqs);
+            //func añadir working char al inicio de cada "string en col n fila 1"
+            
+
+
+
+
+
+            
+
+                        //S3 EN ADELANTE TO-DO//
+
+            // for (var j = 0; j <= longHijo; j++) {
+               
+            //    palHijo = workChar + palHijo;
+            //    snapsBlqs[nBloq][0] = palHijo;
+            //    workChar = palHijo[0];
+            //    if(true){
+                  
+            //    }
+            //    else{ //movemos workingChar y creamos bloqueos
+            //       palHijo = desplazar(workChar,palHijo);
+            //       snapsBlqs[nBloq][j] = palHijo;
+            //    }
+            // }
+            }
 
       } //FinBloqueo
          snapsBlqs = formatearAhorizontal(snapsBlqs); //AQUI REVALORIZAR SNAPS una vez obtenidos CMCC
