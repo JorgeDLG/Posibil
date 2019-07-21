@@ -119,7 +119,9 @@ function delSeparadorBlq(matriz){
    }
 }
 function addAlInicioCadaCol(Wchar, matrizHO){
-   
+   for (let i = 0; i < matrizHO.length; i++) {
+      matrizHO[i][0] = Wchar + matrizHO[i][0];
+   }
 }
 
 function button(){
