@@ -104,15 +104,24 @@ function button(){
    const out= document.getElementById("espacio");
    const long = palabra.length;
    var workChar; //el que se va añadiendo
-   var palHijo = palabra[0];
-   var longHijo = palHijo.length;
+   
+      //[$] que estos vals se calc dentro de bucle i o dentro de bucle bloq en if y else
+      var palHijo = palabra[0]; 
+      var longHijo = palHijo.length;
+      //
    var nBlqsEnI;
+   
+
    
    for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
       workChar = palabra[i];
+
       //CUANDO LLEGUE AQUI con i = 2, palHijo y longHijo revalorizados
+      //REVALORIZA SALVO EN i=0 ??!! O mejor [$]
+      palHijo = null;
+      longHijo = null;
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
-      //let palHijo = palabra
+      
 
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
@@ -121,9 +130,10 @@ function button(){
          snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
       }
       else{ //(>=S3) coge datos de snap y calc CMCC
-         // debugger;   
          //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
          
+
+
 
 
 
