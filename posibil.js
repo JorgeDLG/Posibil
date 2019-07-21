@@ -77,7 +77,7 @@ function desplazar(charBlq,string){
    return stDesplazada;
 }
 function formatearAhorizontal(matriz){
-   debugger
+   // debugger;
    
    //INPUT
    matriz =[matJ=["cab","acb","abc"]]; 
@@ -85,14 +85,15 @@ function formatearAhorizontal(matriz){
    
    var matrixHORIZ =[];
    //OUTPUT expected: matrix = [matJ=["ab"],matJ=["ba"]];
-
+   var contJ = 0;
 
    for (let i = 0; i < matriz.length; i++) {
       console.log(matriz[i].length) //ha d ser 3
       for (let j = 0; j < matriz[i].length; j++) {
          
          matrixHORIZ.push(new Array(1));
-         matrixHORIZ[j][0] = matriz[i][j]; //ERROR, NO PUEDE SER J porque en segunda iter(i=1), j vuelve a valer 0 y SOBREESCRIBE los valores anteriores.
+         matrixHORIZ[contJ][0] = matriz[i][j]; //ERROR, NO PUEDE SER J porque en segunda iter(i=1), j vuelve a valer 0 y SOBREESCRIBE los valores anteriores.
+         contJ++;
       }
       matrixHORIZ.push("#") //separador de bloqueo
    }
@@ -118,15 +119,15 @@ function button(){
 
       //CUANDO LLEGUE AQUI con i = 2, palHijo y longHijo revalorizados
       //REVALORIZA SALVO EN i=0 ??!! O mejor [$]
-      palHijo = null;
+      /*palHijo = null;
       longHijo = null;
+      */
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
-      
-
+      debugger;
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
-         var palHijoAB = palHijo+workChar, palHijoBA = workChar+palHijo;
+         var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
          snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
       }
       else{ //(>=S3) coge datos de snap y calc CMCC
