@@ -77,23 +77,26 @@ function desplazar(charBlq,string){
    return stDesplazada;
 }
 function formatearAhorizontal(matriz){
-   debugger;
-   matriz =[matJ=["cab","acb","abc","cba","bca","bac"]]; //INPUT
-   //var matrix =[matJ=[null],matJ=[null]];
-   var matrix =[];
+   debugger
+   
+   //INPUT
+   matriz =[matJ=["cab","acb","abc"]]; 
+   matriz.push(matJ=["cba","bca","bac"]);
+   
+   var matrixHORIZ =[];
    //OUTPUT expected: matrix = [matJ=["ab"],matJ=["ba"]];
 
 
    for (let i = 0; i < matriz.length; i++) {
-      
+      console.log(matriz[i].length) //ha d ser 3
       for (let j = 0; j < matriz[i].length; j++) {
          
-         matrix.push(new Array(1));
-         matrix[j][0] = matriz[i][j];
+         matrixHORIZ.push(new Array(1));
+         matrixHORIZ[j][0] = matriz[i][j]; //ERROR, NO PUEDE SER J porque en segunda iter(i=1), j vuelve a valer 0 y SOBREESCRIBE los valores anteriores.
       }
-      matrix.push("#")
+      matrixHORIZ.push("#") //separador de bloqueo
    }
-   return matrix;
+   return matrixHORIZ;
 }
 
 function button(){
@@ -105,46 +108,43 @@ function button(){
    var longHijo = palHijo.length;
    var nBlqsEnI;
    
-   for (var i = 1; i <= long - 1; i++){
+   for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
       workChar = palabra[i];
+      //CUANDO LLEGUE AQUI con i = 2, palHijo y longHijo revalorizados
       nBlqsEnI = Factorial(longHijo)/longHijo; //longHijo debe revalorizarse
       //let palHijo = palabra
 
       for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
          
          if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
-
-         palHijo = palHijo + workChar; // XQ longHijo no es = 2?
-         var snapsBlqs = new Array(nBlqsEnI); //arrayI
+         var palHijoAB = palHijo+workChar, palHijoBA = workChar+palHijo;
+         snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
+      }
+      else{ //(>=S3) coge datos de snap y calc CMCC
+         // debugger;   
+         //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
          
-         for (let nBlq = 0; nBlq < nBlqsEnI; nBlq++) {
-            snapsBlqs[nBlq] = new Array(longHijo); //arrayJ
-         }
 
-         snapsBlqs[0][0] = palHijo; //AB?
-         palHijo = workChar + palHijo;
-         snapsBlqs[0][1] = palHijo; //BA?
-         }
-         else{ //(>=S3) coge datos de snap y calc CMCC
+
+
+
+         
+
+                     //S3 EN ADELANTE TO-DO//
+
+         // for (var j = 0; j <= longHijo; j++) {
             
-         //palHijo = snaps[] 
-            
-
-                        //S3 EN ADELANTE TO-DO//
-
-            // for (var j = 0; j <= longHijo; j++) {
+         //    palHijo = workChar + palHijo;
+         //    snapsBlqs[nBloq][0] = palHijo;
+         //    workChar = palHijo[0];
+         //    if(true){
                
-            //    palHijo = workChar + palHijo;
-            //    snapsBlqs[nBloq][0] = palHijo;
-            //    workChar = palHijo[0];
-            //    if(true){
-                  
-            //    }
-            //    else{ //movemos workingChar y creamos bloqueos
-            //       palHijo = desplazar(workChar,palHijo);
-            //       snapsBlqs[nBloq][j] = palHijo;
-            //    }
-            // }
+         //    }
+         //    else{ //movemos workingChar y creamos bloqueos
+         //       palHijo = desplazar(workChar,palHijo);
+         //       snapsBlqs[nBloq][j] = palHijo;
+         //    }
+         // }
          }
 
       } //FinBloqueo
