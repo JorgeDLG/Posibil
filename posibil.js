@@ -118,6 +118,9 @@ function delSeparadorBlq(matriz){
          iter++;
    }
 }
+function addAlInicioCadaCol(Wchar, matrizHO){
+   
+}
 
 function button(){
    const palabra = document.getElementById("input").value;
@@ -151,6 +154,7 @@ function button(){
          else{ //(>=S3) coge datos de snap y calc CMCC
             //1º INPT: snapsBlqs[0,0] = "ba" / snapsBlqs[0,1] = "ab" / snapsBlqs[0,2] = "#"
             delSeparadorBlq(snapsBlqs);
+            addAlInicioCadaCol(workChar,snapsBlqs);
             //func añadir working char al inicio de cada "string en col n fila 1"
             
 
