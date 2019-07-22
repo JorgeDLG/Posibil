@@ -23,9 +23,6 @@ function desplazar(charBlq,string){
    return stDesplazada;
 }
 function formatearAhorizontal(matriz){
-   //INPUT:
-   // matriz =[matJ=["cab","acb","abc"]]; 
-   // matriz.push(matJ=["cba","bca","bac"]);
    var matrixHORIZ =[];
    var contBlq = 0;
 
@@ -42,14 +39,6 @@ function formatearAhorizontal(matriz){
    return matrixHORIZ;
 }
 function delSeparadorBlq(matriz){
-   // matriz =[matJ=["ba"]];
-   // matriz.push(matJ=["ab"]);
-   // matriz.push(matJ=["#"]);
-   
-   // matriz.push(matJ=["ca"]);
-   // matriz.push(matJ=["ac"]);
-   // matriz.push(matJ=["#"]);
-
    var iter = 0;
    while (iter < matriz.length) { //que el iterador no avance si se elimina
 
@@ -62,7 +51,6 @@ function delSeparadorBlq(matriz){
    }
 }
 function addAlInicioCadaCol(Wchar, matrizHO){
-   //func añadir working char al inicio de cada "string en col n fila 1"
    for (let i = 0; i < matrizHO.length; i++) {
       matrizHO[i][0] = Wchar + matrizHO[i][0];
    }
@@ -79,6 +67,9 @@ function button(){
 
    if (long === 1)
       out.innerHTML = "Estas de coña?";
+   else if (long > 7){
+      out.innerHTML = "Demasiado pides tt  X(";
+   }
    else{
       
       for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
@@ -92,7 +83,7 @@ function button(){
             longHijo = palHijo.length;
          }
          nBlqsEnI = Factorial(longHijo)/longHijo;
-         //nBlq... en i=2,longHijo=2 no deberia ser 2?? xq 1?
+         
          for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
             
             if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
@@ -101,26 +92,18 @@ function button(){
             }
             else{ //(>=S3) coge datos de snap y calc CMCC
                
-                        //S3 EN ADELANTE//
-               for (var j = 0; j < longHijo-1; j++) { //val longHijo es antes de añadir Wchar!!!
+               for (var j = 0; j < longHijo-1; j++) {
                   var str = snapsBlqs[nBloq][j];
                   var newStr = desplazar(workChar,str);
                      //pusheando el arrayJ con el str desplazado
-                  //snapsBlqs[nBloq][Array.prototype.push(newStr)];
                   var arrJ = snapsBlqs[nBloq];
-                  //snapsBlqs[nBloq][j+1] = arrJ.push(newStr);
-                  //snapsBlqs[nBloq][j+1] = new Array(1).push(newStr);
                   arrJ.push(newStr);
                   snapsBlqs[nBloq] = arrJ;
                }
             }
-   
          } //FinBloqueo
-            snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
-               //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
+            snapsBlqs = formatearAhorizontal(snapsBlqs);
       } //FinI
-      // console.log(snapsBlqs);
       console.table(snapsBlqs);
    }
-
 } //FinButton
