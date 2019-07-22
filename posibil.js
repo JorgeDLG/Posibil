@@ -77,50 +77,50 @@ function button(){
 
    var nBlqsEnI;
 
+   if (long === 1)
+      out.innerHTML = "Estas de coña?";
+   else{
+      
+      for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
+         workChar = palabra[i];
    
-
-   for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
-      workChar = palabra[i];
-
-      if (i>1) {
-         //solo para calcular nBlqsEnI
-         delSeparadorBlq(snapsBlqs);
-         addAlInicioCadaCol(workChar,snapsBlqs);
-         palHijo = snapsBlqs[0][0];
-         longHijo = palHijo.length;
-      }
-      nBlqsEnI = Factorial(longHijo)/longHijo;
-      //nBlq... en i=2,longHijo=2 no deberia ser 2?? xq 1?
-      for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
-         
-         if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
-            var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
-            snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
+         if (i>1) {
+            //solo para calcular nBlqsEnI
+            delSeparadorBlq(snapsBlqs);
+            addAlInicioCadaCol(workChar,snapsBlqs);
+            palHijo = snapsBlqs[0][0];
+            longHijo = palHijo.length;
          }
-         else{ //(>=S3) coge datos de snap y calc CMCC
+         nBlqsEnI = Factorial(longHijo)/longHijo;
+         //nBlq... en i=2,longHijo=2 no deberia ser 2?? xq 1?
+         for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
             
-                     //S3 EN ADELANTE//
-            for (var j = 0; j < longHijo-1; j++) { //val longHijo es antes de añadir Wchar!!!
-               var str = snapsBlqs[nBloq][j];
-               var newStr = desplazar(workChar,str);
-                  //pusheando el arrayJ con el str desplazado
-               //snapsBlqs[nBloq][Array.prototype.push(newStr)];
-               var arrJ = snapsBlqs[nBloq];
-               // debugger;
-               //snapsBlqs[nBloq][j+1] = arrJ.push(newStr);
-               //snapsBlqs[nBloq][j+1] = new Array(1).push(newStr);
-               arrJ.push(newStr);
-               snapsBlqs[nBloq] = arrJ;
+            if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
+               var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
+               snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
             }
-               /*ERRORES DEL BUCLE J: ¡DEPURA!
-                  1. falta "CAB" en snap[6][0]!!
-               */
-         }
+            else{ //(>=S3) coge datos de snap y calc CMCC
+               
+                        //S3 EN ADELANTE//
+               for (var j = 0; j < longHijo-1; j++) { //val longHijo es antes de añadir Wchar!!!
+                  var str = snapsBlqs[nBloq][j];
+                  var newStr = desplazar(workChar,str);
+                     //pusheando el arrayJ con el str desplazado
+                  //snapsBlqs[nBloq][Array.prototype.push(newStr)];
+                  var arrJ = snapsBlqs[nBloq];
+                  //snapsBlqs[nBloq][j+1] = arrJ.push(newStr);
+                  //snapsBlqs[nBloq][j+1] = new Array(1).push(newStr);
+                  arrJ.push(newStr);
+                  snapsBlqs[nBloq] = arrJ;
+               }
+            }
+   
+         } //FinBloqueo
+            snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
+               //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
+      } //FinI
+      // console.log(snapsBlqs);
+      console.table(snapsBlqs);
+   }
 
-      } //FinBloqueo
-         snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
-            //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
-   } //FinI
-   // console.log(snapsBlqs);
-   console.table(snapsBlqs);
 } //FinButton
