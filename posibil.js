@@ -135,7 +135,6 @@ function button(){
       workChar = palabra[i];
 
       if (i>1) {
-         debugger;
          //solo para calcular nBlqsEnI
          delSeparadorBlq(snapsBlqs);
          addAlInicioCadaCol(workChar,snapsBlqs);
@@ -158,17 +157,23 @@ function button(){
                var str = snapsBlqs[nBloq][j];
                var newStr = desplazar(workChar,str);
                   //pusheando el arrayJ con el str desplazado
+               //snapsBlqs[nBloq][Array.prototype.push(newStr)];
                var arrJ = snapsBlqs[nBloq];
-               arrJ.push(newStr); //creo que se esta valorando el arrJ
-               // de forma independiente a snapsBlqs o lo valoro
-               //de forma integrada o lo pego dentro una vez valorado
-
+               // debugger;
+               //snapsBlqs[nBloq][j+1] = arrJ.push(newStr);
+               //snapsBlqs[nBloq][j+1] = new Array(1).push(newStr);
+               arrJ.push(newStr);
+               snapsBlqs[nBloq] = arrJ;
             }
+               /*ERRORES DEL BUCLE J: ¡DEPURA!
+                  1. falta "CAB" en snap[6][0]!!
+               */
          }
 
       } //FinBloqueo
          snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
             //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
    } //FinI
-
+   console.table(snapsBlqs);
+   console.log(snapsBlqs);
 } //FinButton

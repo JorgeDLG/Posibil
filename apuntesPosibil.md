@@ -42,3 +42,8 @@ Mayusculas = Suproducto de CMCC.
       CDBA    ,   BDCA   ,   BDAC   ,   CDAB   ,   ADCB   ,   ADBC
       CBDA    ,   BCDA   ,   BADC   ,   CADB   ,   ACDB   ,   ABDC
       CBAD    ,   BCAD   ,   BACD   ,   CABD   ,   ACBD   ,   ABCD.
+
+
+**DATO DE INTERES SOBRE MATRICES:**
+  Puedes usar console.table(matriz)
+  para dibujar la matriz en consola del navegador.
