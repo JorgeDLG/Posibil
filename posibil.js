@@ -1,55 +1,4 @@
 "strict mode";
-
-function test(){
-// crear arrays 2 dimensiones https://tutobasico.com/multidimensionales-javascript/
-   
-   const out= document.getElementById("espacio");
-   
-   const tamañoI = 3, tamañoJ = 5;  //y si no se el tamaño del array?
-   
-   var arrayI = new Array(tamañoI);
-   var contador = 0; //valores random a meter (ejemplo)
-
-   //CREANDO LA ESTRUC DE LA MATRIZ
-   for (let i = 0; i < tamañoI; i++) { 
-      arrayI[i] = new Array(tamañoJ);
-   }
-   //DANDO VALORES A LA MATRIZ
-   arrayI.forEach(val => {
-      for (let j = 0; j < tamañoJ; j++) {
-         val[j] = contador;
-         contador++;  
-      }
-   });
-   //PRINTEANDO LA MATRIZ
-   for (let i = 0; i < tamañoI; i++) {
-      for (let j = 0; j < tamañoJ; j++) {      
-         out.innerHTML += arrayI[i][j] + " ";
-      }
-   }
-
-
-
-   /*  USO DEL FOR OF:
-
-      for (let iterI of matriz){
-         for(let iterJ of iterI){
-            console.log(iterI,iterJ);
-         }
-      }
-   */
-}
-function testScopes(){
-   var str = "a";
-   var long = str.length; 
-
-
-   if (true) {
-      let str = "zzz";
-      let long = str.length; 
-      console.log(str,long);
-   }
-}
 function Factorial(numero){
    
    if (numero === 0) {
@@ -73,23 +22,22 @@ function desplazar(charBlq,string){
    let stDesplazada = stringArray.join("");
    return stDesplazada;
 }
-function formatearAhorizontal(matriz){   
-   //INPUT
+function formatearAhorizontal(matriz){
+   //INPUT:
    // matriz =[matJ=["cab","acb","abc"]]; 
    // matriz.push(matJ=["cba","bca","bac"]);
-   
    var matrixHORIZ =[];
-   //OUTPUT expected: matrix = [matJ=["ab"],matJ=["ba"]];
-   var contJ = 0;
+   var contBlq = 0;
 
    for (let i = 0; i < matriz.length; i++) {
       for (let j = 0; j < matriz[i].length; j++) {
          
          matrixHORIZ.push(new Array(1));
-         matrixHORIZ[contJ][0] = matriz[i][j];
-         contJ++;
+         matrixHORIZ[contBlq][0] = matriz[i][j];
+         contBlq++;
       }
       matrixHORIZ.push("#") //separador de bloqueo PARA EL CCMC final formatear el output
+      contBlq++;
    }
    return matrixHORIZ;
 }
@@ -119,18 +67,18 @@ function addAlInicioCadaCol(Wchar, matrizHO){
       matrizHO[i][0] = Wchar + matrizHO[i][0];
    }
 }
-
 function button(){
    const palabra = document.getElementById("input").value;
    const out= document.getElementById("espacio");
    const long = palabra.length;
    var workChar;
+   var palHijo = palabra[0]; 
+   var longHijo = palHijo.length;
+
+   var nBlqsEnI;
+
    
-      //[$] que estos vals se calc dentro de bucle i o dentro de bucle bloq en if y else
-      var palHijo = palabra[0]; 
-      var longHijo = palHijo.length;
-      //
-      var nBlqsEnI;
+
    for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
       workChar = palabra[i];
 
@@ -153,7 +101,6 @@ function button(){
             
                      //S3 EN ADELANTE//
             for (var j = 0; j < longHijo-1; j++) { //val longHijo es antes de añadir Wchar!!!
-
                var str = snapsBlqs[nBloq][j];
                var newStr = desplazar(workChar,str);
                   //pusheando el arrayJ con el str desplazado
@@ -174,6 +121,6 @@ function button(){
          snapsBlqs = formatearAhorizontal(snapsBlqs); //CMCC recien salido del horno
             //Nº bloqueos o snaps se establecen por Nº iteraciones de j.
    } //FinI
+   // console.log(snapsBlqs);
    console.table(snapsBlqs);
-   console.log(snapsBlqs);
 } //FinButton
