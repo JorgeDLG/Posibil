@@ -55,23 +55,36 @@ function addAlInicioCadaCol(Wchar, matrizHO){
       matrizHO[i][0] = Wchar + matrizHO[i][0];
    }
 }
-function dibujarSnapsEnparrafos(matriz) {
+function eliminHijos(listaNodosHijos) {
    
+   console.log(typeof listaNodosHijos);
+   for (let i = 0; i < listaNodosHijos.length; i++) {
+      if (listaNodosHijos[i].nodeName == "P") {
+         listaNodosHijos[i].innerHTML = "";
+      }
+   }
+
+   var lNHclean = listaNodosHijos;
+   // console.log(div.firstElementChild);
+   // if (div.firstChild.length > 0) { //ERROR,TENGO QUE SOBREESCR EL DIV
+   //    div.removeChild(div.firstElementChild);
+   //    // div.childNodes.innerHTML = "";
+   
+   // }
+   return lNHclean;
+}
+function dibujarSnapsEnparrafos(matriz) {
+
    const div = document.getElementById("divOut");
    var parr = document.createElement("p");
-   // var br = document.createElement("br");
    var content = "";
-   // console.log(div.childNodes);
-   console.log(div.firstChild);
-   if (div.firstChild.length > 0) { //ERROR,TENGO QUE SOBREESCR EL DIV
-      div.removeChild(div.firstChild);
-      // div.childNodes.innerHTML = "";
-
-   }
+   
+   div.childNodes = eliminHijos(div.childNodes);
+   
    for (let Arrbloq = 0; Arrbloq < matriz.length; Arrbloq++) {
       var str = matriz[Arrbloq][0];
       if (str == "#") { //nuevo parafo donde meter contenidos
-         // debugger;
+         // 
          parr = document.createElement("p");
          
       }
@@ -81,22 +94,6 @@ function dibujarSnapsEnparrafos(matriz) {
          div.appendChild(parr);
       }
    }
-   /*BACKUP FOR
-   for (let Arrbloq = 0; Arrbloq < matriz.length; Arrbloq++) {
-      var str = matriz[Arrbloq][0];
-      if (str == "#") {
-         debugger;
-         parr.insertAdjacentElement("afterend",br);
-         // añade br
-      }
-      else{
-         content = document.createTextNode(str);
-         parr = document.createElement("p");
-         parr.appendChild(content);
-         div.appendChild(parr);
-      }
-   }
-   */
 }
 function button(){
    const palabra = document.getElementById("input").value;
@@ -109,12 +106,14 @@ function button(){
    var longHijo = palHijo.length;
 
    var nBlqsEnI;
-
+                     //ERROR! PARA 2siguientes excepciones limpiar contenido previo de div.childs
    if (long === 1){
-      // debugger;
+      // 
+      // div.childNodes = eliminHijos(div.childNodes);
       pCoña.innerHTML = "Estas de coña?";
    }
    else if (long > 7){
+      // div.childNodes = eliminHijos(div.childNodes);
       pCoña.innerHTML = "Demasiado pides tt  X(";
    }
    else{
