@@ -55,9 +55,22 @@ function addAlInicioCadaCol(Wchar, matrizHO){
       matrizHO[i][0] = Wchar + matrizHO[i][0];
    }
 }
+function dibujarSnapsEnparrafos(matriz) {
+   
+   content = document.createTextNode("Estas de coña?");
+   parr.appendChild(content);
+   div.appendChild(parr);
+
+   return 
+}
 function button(){
    const palabra = document.getElementById("input").value;
-   const out= document.getElementById("espacio");
+   const div = document.getElementById("divOut");
+   const pCoña = document.getElementById("mensajesCoña");
+   
+   var parr = document.createElement("p");
+   var content = "";
+   
    const long = palabra.length;
    var workChar;
    var palHijo = palabra[0]; 
@@ -65,13 +78,16 @@ function button(){
 
    var nBlqsEnI;
 
-   if (long === 1)
-      out.innerHTML = "Estas de coña?";
+   if (long === 1){
+      // debugger;
+      pCoña.innerHTML = "Estas de coña?";
+   }
    else if (long > 7){
-      out.innerHTML = "Demasiado pides tt  X(";
+      pCoña.innerHTML = "Demasiado pides tt  X(";
    }
    else{
-      
+      pCoña.innerHTML = "";
+   
       for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
          workChar = palabra[i];
    
@@ -105,5 +121,7 @@ function button(){
             snapsBlqs = formatearAhorizontal(snapsBlqs);
       } //FinI
       console.table(snapsBlqs);
+      dibujarSnapsEnparrafos(snapsBlqs);
+      //que esta func devuelva parrafos en bucle en el nodo adecuado?
    }
 } //FinButton
