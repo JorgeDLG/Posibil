@@ -57,19 +57,51 @@ function addAlInicioCadaCol(Wchar, matrizHO){
 }
 function dibujarSnapsEnparrafos(matriz) {
    
-   content = document.createTextNode("Estas de coña?");
-   parr.appendChild(content);
-   div.appendChild(parr);
+   const div = document.getElementById("divOut");
+   var parr = document.createElement("p");
+   // var br = document.createElement("br");
+   var content = "";
+   // console.log(div.childNodes);
+   console.log(div.firstChild);
+   if (div.firstChild.length > 0) { //ERROR,TENGO QUE SOBREESCR EL DIV
+      div.removeChild(div.firstChild);
+      // div.childNodes.innerHTML = "";
 
-   return 
+   }
+   for (let Arrbloq = 0; Arrbloq < matriz.length; Arrbloq++) {
+      var str = matriz[Arrbloq][0];
+      if (str == "#") { //nuevo parafo donde meter contenidos
+         // debugger;
+         parr = document.createElement("p");
+         
+      }
+      else{
+         content = document.createTextNode(str+"   ");
+         parr.appendChild(content);
+         div.appendChild(parr);
+      }
+   }
+   /*BACKUP FOR
+   for (let Arrbloq = 0; Arrbloq < matriz.length; Arrbloq++) {
+      var str = matriz[Arrbloq][0];
+      if (str == "#") {
+         debugger;
+         parr.insertAdjacentElement("afterend",br);
+         // añade br
+      }
+      else{
+         content = document.createTextNode(str);
+         parr = document.createElement("p");
+         parr.appendChild(content);
+         div.appendChild(parr);
+      }
+   }
+   */
 }
 function button(){
    const palabra = document.getElementById("input").value;
-   const div = document.getElementById("divOut");
    const pCoña = document.getElementById("mensajesCoña");
    
-   var parr = document.createElement("p");
-   var content = "";
    
    const long = palabra.length;
    var workChar;
@@ -86,7 +118,8 @@ function button(){
       pCoña.innerHTML = "Demasiado pides tt  X(";
    }
    else{
-      pCoña.innerHTML = "";
+      if(pCoña !== null)
+         pCoña.innerHTML = null;
    
       for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
          workChar = palabra[i];
