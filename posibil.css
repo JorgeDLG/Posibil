@@ -1,1 +1,29 @@
+body{
+    background-color: #175676;
+}
+h2,h3{
+    text-align: center;
+}
+#introd{
+    color: orange;
+}
+input{
+    a
+}
+div{
 
+}
+/* div:nth-child(even){
+    background-color: purple;
+}
+div:nth-child(odd){
+    background-color: orange;
+} */
+div p{
+    text-align: center;
+    color: #BA324F;
+    background-color: #175676;
+}
+#mensajesCoña{
+    color: green;
+}
