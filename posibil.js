@@ -1,75 +1,159 @@
 "strict mode";
-alert("script launched");
-
-
-function button(){
+function Factorial(numero){
    
-   //2 opciones para esta func: O se "computan" todas las snaps y printea todo d golpe
-                              // O Guardar snap =  Printear (sin sobreescribe)
-   
-   //const buton = document.getElementById("boton");
-   const input = document.getElementById("input").value;
-   const out= document.getElementById("espacio"); //.value?
-   
-   var Orig = input;
-   var snaps = [,]; //CONS?
-
-   function printear(string){ //sobreescribe
-      out.innerHTML = string;
+   if (numero === 0) {
+      return 1;
    }
-
-   function Conmuta(nBlq,original,snaps){
-
+   else{
+      return numero * Factorial(numero-1);
    }
-
-   function desplazar(charBlq,string){
-      
-      let stringArray = string.split('');
-
-      let chAdesp = stringArray.indexOf(charBlq); //PROBLEMA con chars iguales
-
-      let aux = stringArray[chAdesp];
-
-      stringArray[chAdesp] = stringArray[chAdesp+1];
-      stringArray[chAdesp+1] = aux;
-
-      debugger;
-      let stDesplazada = stringArray.join(""); //ERROR: Me lo une con comas
-      return stDesplazada;
-   }
-   
-   // asegura los scopes de las var
-   for (var nBlq = 0; nBlq < input.length - 1; nBlq++){ //nBlq = Numero Ordinal Char Bloqueado en palabra(input)
-      
-      var charBlq = Orig[nBlq]; //podria ser una const cogida del Input?
-      snaps[nBlq,0] = Orig; //Original siempre va a ser 0
-
-      //Conmuta(nBlq,Orig,snaps);
-
-      //REVALORIZAR Orig POR CADA ITERACION al final!
-      var Orig = desplazar(charBlq,Orig);
-   }
-
-   nBlq++;
-   snaps[nBlq,0] = Orig;
-   //Conmuta(nBlq,Orig,snaps); //Ultima conmut fuera porque no queremos que DESPLACE fuera de la palabra.
-   
 }
+function desplazar(charBlq,string){
+   
+   let stringArray = string.split('');
 
+   let chAdesp = stringArray.indexOf(charBlq); //PROBLEMA con chars iguales
 
-//window.addEventListener('click
+   let aux = stringArray[chAdesp];
 
+   stringArray[chAdesp] = stringArray[chAdesp+1];
+   stringArray[chAdesp+1] = aux;
 
+   let stDesplazada = stringArray.join("");
+   return stDesplazada;
+}
+function formatearAhorizontal(matriz){
+   var matrixHORIZ =[];
+   var contBlq = 0;
 
-   /* ..INSTRUCCIONES..
-1. Leer palabra del input
-2. Iniciar loop de bloqueo del 1º char
-3. Guardar estado del string como ORIGINAL y SNAP
-4. CONMUTACION Y SNAP **(KIT cuestion cuando más chars)
-5.  Volver a ORIGINAL e ITERAR loop bloqueo 1º char
-6. REPETIR 3-4-5
-7.  Cuando revase ultimoChar fin loop bloqueo.. Y FIN APP.
+   for (let i = 0; i < matriz.length; i++) {
+      for (let j = 0; j < matriz[i].length; j++) {
+         
+         matrixHORIZ.push(new Array(1));
+         matrixHORIZ[contBlq][0] = matriz[i][j];
+         contBlq++;
+      }
+      matrixHORIZ.push("#") //separador de bloqueo PARA EL CCMC final formatear el output
+      contBlq++;
+   }
+   return matrixHORIZ;
+}
+function delSeparadorBlq(matriz){
+   var iter = 0;
+   while (iter < matriz.length) { //que el iterador no avance si se elimina
 
+      var strEnArrJ = matriz[iter][0];
+      if (strEnArrJ === "#") {
+         matriz.splice(iter,1); //.splice(pos a 'empezar' a remover,Npos hasta fin a remover)
+      }
+      else
+         iter++;
+   }
+}
+function addAlInicioCadaCol(Wchar, matrizHO){
+   for (let i = 0; i < matrizHO.length; i++) {
+      matrizHO[i][0] = Wchar + matrizHO[i][0];
+   }
+}
+function eliminHijos(listaNodosHijos) {
+   
+   console.log(typeof listaNodosHijos);
+   for (let i = 0; i < listaNodosHijos.length; i++) {
+      if (listaNodosHijos[i].nodeName == "P") {
+         listaNodosHijos[i].innerHTML = "";
+      }
+   }
 
-(chars * multiplicador =snaps totales) 3*2=6 4*6=24
-*/
+   var lNHclean = listaNodosHijos;
+   // console.log(div.firstElementChild);
+   // if (div.firstChild.length > 0) { //ERROR,TENGO QUE SOBREESCR EL DIV
+   //    div.removeChild(div.firstElementChild);
+   //    // div.childNodes.innerHTML = "";
+   
+   // }
+   return lNHclean;
+}
+function dibujarSnapsEnparrafos(matriz) {
+
+   const div = document.getElementById("divOut");
+   var parr = document.createElement("p");
+   var content = "";
+   
+   div.childNodes = eliminHijos(div.childNodes);
+   
+   for (let Arrbloq = 0; Arrbloq < matriz.length; Arrbloq++) {
+      var str = matriz[Arrbloq][0];
+      if (str == "#") { //nuevo parafo donde meter contenidos
+         // 
+         parr = document.createElement("p");
+         
+      }
+      else{
+         content = document.createTextNode(str+"   ");
+         parr.appendChild(content);
+         div.appendChild(parr);
+      }
+   }
+}
+function button(){
+   const palabra = document.getElementById("input").value;
+   const pCoña = document.getElementById("mensajesCoña");
+   
+   
+   const long = palabra.length;
+   var workChar;
+   var palHijo = palabra[0]; 
+   var longHijo = palHijo.length;
+
+   var nBlqsEnI;
+                     //ERROR! PARA 2siguientes excepciones limpiar contenido previo de div.childs
+   if (long === 1){
+      // 
+      // div.childNodes = eliminHijos(div.childNodes);
+      pCoña.innerHTML = "Estas de coña?";
+   }
+   else if (long > 7){
+      // div.childNodes = eliminHijos(div.childNodes);
+      pCoña.innerHTML = "Demasiado pides tt  X(";
+   }
+   else{
+      if(pCoña !== null)
+         pCoña.innerHTML = null;
+   
+      for (var i = 1; i <= long - 1; i++){ //CHAR de PALABRA INPUT USUARIO
+         workChar = palabra[i];
+   
+         if (i>1) {
+            //solo para calcular nBlqsEnI
+            delSeparadorBlq(snapsBlqs);
+            addAlInicioCadaCol(workChar,snapsBlqs);
+            palHijo = snapsBlqs[0][0];
+            longHijo = palHijo.length;
+         }
+         nBlqsEnI = Factorial(longHijo)/longHijo;
+         
+         for (var nBloq = 0; nBloq < nBlqsEnI; nBloq++) {
+            
+            if (i === 1) { //APAÑO para S(2) para que no coja datos de snap pero lo "inicie"
+               var palHijoAB = palHijo+workChar, palHijoBA = workChar.concat(palHijo);
+               snapsBlqs = [arrayJ = [palHijoBA,palHijoAB]]
+            }
+            else{ //(>=S3) coge datos de snap y calc CMCC
+               
+               for (var j = 0; j < longHijo-1; j++) {
+                  var str = snapsBlqs[nBloq][j];
+                  var newStr = desplazar(workChar,str);
+                     //pusheando el arrayJ con el str desplazado
+                  var arrJ = snapsBlqs[nBloq];
+                  arrJ.push(newStr);
+                  snapsBlqs[nBloq] = arrJ;
+               }
+            }
+         } //FinBloqueo
+            snapsBlqs = formatearAhorizontal(snapsBlqs);
+      } //FinI
+      console.table(snapsBlqs);
+      dibujarSnapsEnparrafos(snapsBlqs);
+      //que esta func devuelva parrafos en bucle en el nodo adecuado?
+   }
+} //FinButton

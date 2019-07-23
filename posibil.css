@@ -1,1 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Londrina+Shadow|Rubik&display=swap');
 
+body{
+    background-color: #E4DFDA;
+}
+h2{
+    text-align: center;
+    color: #8338EC;
+    font-size: 4em;
+    font-family: 'Londrina Shadow', cursive;
+    margin-bottom: 0em;
+}
+h3{
+    text-align: center;
+    color: #683257;
+    font-size: 2em;
+    font-family: 'Rubik', sans-serif;
+    margin:0em;
+}
+p{
+    font-style: italic;
+}
+#autor{
+    text-align: right;
+    margin-top: 0em;
+}
+#introd{
+    color: #683257;
+    font-family: 'Rubik', sans-serif;
+    font-style: normal;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+input{
+    
+}
+div{
+    
+}
+/* div:nth-child(even){
+    background-color: purple;
+}
+div:nth-child(odd){
+    background-color: orange;
+} */
+div p{
+    font-size: 2em;
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    color: #BA324F;
+    background-color: #175676;
+    /* background-color: grey; */
+}
+#mensajesCoña{
+    color: green;
+}

@@ -2,27 +2,35 @@
 <html>
 <head>
    <title>PROYECTO POSIBIL en JS, Obtener todas las 
-combinaciones de una palabra con n letras. si es posible
-con recursividad</title>
+   combinaciones de una palabra con n letras. si es posible
+   con recursividad</title>
 
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" type="text/css" href="posibil.css">
-
   <script src="posibil.js"></script>
-   </head>
+</head>
 
 <body> 
 
-   <h2>POSIBIL. Combinatoria con una palabra dada. </h2>
+   <h2>POSIBILETRAS</h2>
    <br>
-   <p>Introduce los caracteres:</p>
+   <p id="autor">Por <a href="https://github.com/JorgeDLG/Posibil">JorgeDLG</a></p>
+   <br>
+   <h3>Combinatoria con todas las letras de una palabra dada.</h3>
+   <br>
+   <p>Palabras con letras repetidas producen resultados inesperados (trabajando en ello) ;(</p>
+   <br>
+   <p id="introd">Introduce tu palabra!:</p>
 
    <input type="text" id="input">
 
    <button onclick="button();" id="boton"> Generar</button>
-   <p id="espacio">Test0</p>
+   <div id="divOut">
+      <p id="mensajesCoña"></p>
+   </div>
 
 </body>
 </html>
+<!-- https://www.guidacode.com/2018/javascript/crear-elementos-html-con-javascript/ -->
