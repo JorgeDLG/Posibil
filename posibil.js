@@ -22,6 +22,14 @@ function desplazar(charBlq,string){
    let stDesplazada = stringArray.join("");
    return stDesplazada;
 }
+function desplConLetrasiguales(pos,str){ //pos = posicion de la letra a desplazar en la palabra
+   let strArr = str.split('');
+   let chAux = strArr[pos+1];
+   strArr[pos+1] = strArr[pos];
+   strArr[pos] = chAux;
+   str = strArr.join("");
+   return str;
+}
 function formatearAhorizontal(matriz){
    var matrixHORIZ =[];
    var contBlq = 0;
@@ -64,14 +72,14 @@ function eliminHijos(listaNodosHijos) {
       }
    }
 
-   var lNHclean = listaNodosHijos;
+   // var lNHclean = listaNodosHijos;
    // console.log(div.firstElementChild);
    // if (div.firstChild.length > 0) { //ERROR,TENGO QUE SOBREESCR EL DIV
    //    div.removeChild(div.firstElementChild);
    //    // div.childNodes.innerHTML = "";
    
    // }
-   return lNHclean;
+   return listaNodosHijos;
 }
 function dibujarSnapsEnparrafos(matriz) {
 
@@ -96,6 +104,7 @@ function dibujarSnapsEnparrafos(matriz) {
    }
 }
 function button(){
+   // debugger;
    const palabra = document.getElementById("input").value;
    const pCoña = document.getElementById("mensajesCoña");
    
@@ -142,7 +151,8 @@ function button(){
                
                for (var j = 0; j < longHijo-1; j++) {
                   var str = snapsBlqs[nBloq][j];
-                  var newStr = desplazar(workChar,str);
+                  // var newStr = desplazar(workChar,str);
+                  var newStr = desplConLetrasiguales(j,str);
                      //pusheando el arrayJ con el str desplazado
                   var arrJ = snapsBlqs[nBloq];
                   arrJ.push(newStr);
