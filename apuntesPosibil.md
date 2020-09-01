@@ -47,3 +47,18 @@ Mayusculas = Suproducto de CMCC.
 **DATO DE INTERES SOBRE MATRICES:**
   Puedes usar console.table(matriz)
   para dibujar la matriz en consola del navegador.
+
+
+
+
+## POSIBIL FASE 2(0.2) ##
+
+   objetivo: Consultar con una BD o algo similar para comprobar si existe la palabra. Con un checkbox indicamos si queremos mostrar solo palabras existentes(comprobadas con la BD).
+
+
+###VERTIENTE 1: Con www.dirae.es
+   Por cada palabra haremos una busqueda en la web?? lentisimo!!!! y si el result es no encontrado marcarla como inexistente.
+
+###VERTIENTE 2: Usa api de rae o algo.
+   sss
+
